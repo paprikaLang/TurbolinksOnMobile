@@ -8,5 +8,5 @@ pod 'Turbolinks', git:'https://github.com/turbolinks/turbolinks-ios.git',branch:
 
 
 
-![](https://ws4.sinaimg.cn/large/006tNc79ly1fjmminlkscg30fe0rmtzr.gif)
+![](https://ws3.sinaimg.cn/large/006tNc79ly1fjmml0wirmg30f60rinpd.gif)
 
