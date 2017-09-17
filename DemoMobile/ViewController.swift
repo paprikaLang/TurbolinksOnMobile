@@ -20,6 +20,11 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func save(_ sender: UIButton) {
+        
+        let appdelegate = UIApplication.shared.delegate as! AppDelegate
+        appdelegate.visit(url: URL(string: "http://localhost:3000/posts")!,withAction: .Restore)
+    }
 
 }
 

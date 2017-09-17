@@ -8,6 +8,7 @@
 
 import UIKit
 import Turbolinks
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -34,11 +35,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         visit(url:URL(string:"http://localhost:3000/posts")!)
     
     }
-    func visit(url:URL)  {
+    func visit(url:URL, withAction action:Action = .Advance)  {
+        if url.path == "/posts/new" {
+            let controller = UIStoryboard(name: "Main", bundle: Bundle(for: AppDelegate.self)).instantiateInitialViewController()!
+            navigationController.pushViewController(controller, animated: true)
+        }else{
         
-        let controller = VisitableViewController(url:url)
-        navigationController.pushViewController(controller, animated: true)
-        session.visit(controller)
+            let controller = VisitableViewController(url:url)
+            switch action {
+            case .Advance:
+                navigationController.pushViewController(controller, animated: true)
+            case .Replace:
+                navigationController.popViewController(animated: false)
+                navigationController.pushViewController(controller, animated: true)
+            case .Restore:
+                navigationController.popViewController(animated: true)
+                
+            }
+            
+            session.visit(controller)
+        }
         
     }
     
@@ -60,6 +76,10 @@ extension AppDelegate : SessionDelegate{
         alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         
         navigationController.present(alertController, animated: true, completion: nil)
+    }
+    
+    func sessionDidStartRequest(_ session: Session) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
     }
 }
 
