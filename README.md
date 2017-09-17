@@ -7,5 +7,5 @@ pod 'Turbolinks', git:'https://github.com/turbolinks/turbolinks-ios.git',branch:
 ```
 
 
-![](https://ws3.sinaimg.cn/large/006tNc79ly1fjmmabz69yg30fe0rkx6p.gif)
+![](https://ws1.sinaimg.cn/large/006tNc79ly1fjmmfgg7e9g30f60rknpd.gif)
 
